@@ -15,3 +15,11 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(self.new_credentials.account_platform, "Twitter")
         self.assertEqual(self.new_credentials.account_username, "tweetUser")
         self.assertEqual(self.new_credentials.account_password, "pass123")
+
+    def test_save_credentials(self):
+        '''
+        check if the credentials object is saved to account_user []
+        '''
+        self.assertEqual(len(Credentials.user_credentials), 0)
+        self.new_credentials.save_credentials()
+        self.assertEqual(len(Credentials.user_credentials), 1)

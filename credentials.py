@@ -10,3 +10,15 @@ class Credentials():
         self.account_platform = account_platform
         self.account_username =  account_username
         self.account_password =  account_password
+
+    def save_credentials(self):
+        '''
+        save credentials into user_credentials
+        '''
+        Credentials.user_credentials.append(self)
+
+    def delete_credentials(self):
+        '''
+        delete save credentials
+        '''
+        Credentials.user_credentials.remove(self)

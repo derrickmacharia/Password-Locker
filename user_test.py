@@ -32,7 +32,7 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(self.new_user.first_name,"Der")
         self.assertEqual(self.new_user.last_name,"Rick")
-        self.assertEqual(self.new_user.username,"Rick")
+        self.assertEqual(self.new_user.username,"username")
         self.assertEqual(self.new_user.password,"derrick@gm.com")
 
     def test_save(self):
@@ -70,14 +70,14 @@ class TestUser(unittest.TestCase):
 
         found_user = User.find_by_username("username")
 
-        self.assertEqual(found_user.password, another_user.password)
+        self.assertEqual(found_user.first_name, another_user.first_name)
 
     def test_user_exists(self):
         self.new_user.save_user()
         another_user = User("user","name","username" ,"username@gm.com")
         another_user.save_user()
 
-        user_exists = User.user_exists("user")
+        user_exists = User.user_exists("username")
 
         self.assertTrue(user_exists)
 
