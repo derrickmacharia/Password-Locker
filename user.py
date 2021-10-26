@@ -27,3 +27,15 @@ class User:
         '''
 
         User.user_list.remove(self)
+
+    @classmethod
+    def find_by_first_name(cls, first_name):
+        for user in cls.user_list:
+            if user.first_name == first_name:
+                return user
+
+    @classmethod
+    def user_exists(cls, first_name):
+        for user in cls.user_exists:
+            return True
+        return False
