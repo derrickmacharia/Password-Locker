@@ -4,7 +4,7 @@ class User:
     Class that generates new users
     """
 
-    userlist = [] # Empty user list   
+    user_list = [] # Empty user list   
 
     def __init__(self, first_name, last_name, email):
 
@@ -13,4 +13,10 @@ class User:
         self.email = email
 
     def save_user(self):
-        User.userlist.append(self)
+
+        '''
+        save_uer method saves user objects into user_list
+        '''
+
+        User.user_list.append(self)
+
