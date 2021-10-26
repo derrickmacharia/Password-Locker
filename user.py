@@ -1,3 +1,5 @@
+# import pyperclip
+
 class User:
 
     """
@@ -34,8 +36,25 @@ class User:
             if user.first_name == first_name:
                 return user
 
+
+
+
     @classmethod
     def user_exists(cls, first_name):
-        for user in cls.user_exists:
-            return True
+        for user in cls.user_list:
+            if user.first_name == first_name:
+                return True
         return False
+
+    @classmethod
+    def display_users(cls):
+        '''
+        method that returns the user list
+        '''
+        return cls.user_list
+
+
+    # @classmethod
+    # def copy_email(cls,first_name):
+    #     contact_found = User.find_by_first_name(first_name)
+    #     pyperclip.copy(contact_found.email)
