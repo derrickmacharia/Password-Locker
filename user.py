@@ -8,11 +8,12 @@ class User:
 
     user_list = [] # Empty user list   
 
-    def __init__(self, first_name, last_name, email):
+    def __init__(self, first_name, last_name, username, password):
 
         self.first_name = first_name
         self.last_name = last_name
-        self.email = email
+        self.username = username
+        self.password = password
 
     def save_user(self):
 
@@ -31,18 +32,18 @@ class User:
         User.user_list.remove(self)
 
     @classmethod
-    def find_by_first_name(cls, first_name):
+    def find_by_username(cls, username):
         for user in cls.user_list:
-            if user.first_name == first_name:
+            if user.username == username:
                 return user
 
 
 
 
     @classmethod
-    def user_exists(cls, first_name):
+    def user_exists(cls, username):
         for user in cls.user_list:
-            if user.first_name == first_name:
+            if user.username == username:
                 return True
         return False
 

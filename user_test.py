@@ -17,7 +17,7 @@ class TestUser(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.new_user = User("Der","Rick","derrick@gm.com") #create user object
+        self.new_user = User("Der","Rick", "username", "derrick@gm.com") #create user object
 
     def tearDown(self):
         '''
@@ -32,7 +32,8 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(self.new_user.first_name,"Der")
         self.assertEqual(self.new_user.last_name,"Rick")
-        self.assertEqual(self.new_user.email,"derrick@gm.com")
+        self.assertEqual(self.new_user.username,"Rick")
+        self.assertEqual(self.new_user.password,"derrick@gm.com")
 
     def test_save(self):
         '''
@@ -50,30 +51,30 @@ class TestUser(unittest.TestCase):
         '''
 
         self.new_user.save_user()
-        another_user = User("user","name","username@gm.com")
+        another_user = User("user","name","username", "username@gm.com")
         another_user.save_user()
         self.assertEqual(len(User.user_list),2)
 
     def test_delete_user(self):
         self.new_user.save_user()
-        another_user = User("user","name","username@gm.com")
+        another_user = User("user","name","username", "username@gm.com")
         another_user.save_user()
 
         self.new_user.delete_user()
         self.assertEqual(len(User.user_list),1)
 
-    def test_find_by_first_name(self):
+    def test_find_by_username(self):
         self.new_user.save_user()
-        another_user = User("user","name","username@gm.com")
+        another_user = User("user","name","username", "username@gm.com")
         another_user.save_user()
 
-        found_user = User.find_by_first_name("user")
+        found_user = User.find_by_username("username")
 
-        self.assertEqual(found_user.email, another_user.email)
+        self.assertEqual(found_user.password, another_user.password)
 
     def test_user_exists(self):
         self.new_user.save_user()
-        another_user = User("user","name","username@gm.com")
+        another_user = User("user","name","username" ,"username@gm.com")
         another_user.save_user()
 
         user_exists = User.user_exists("user")
