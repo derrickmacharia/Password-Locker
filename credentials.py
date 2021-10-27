@@ -39,3 +39,11 @@ class Credentials():
         return credentials list
         '''
         return cls.user_credentials
+
+    @classmethod
+    def generate_password(cls, password_length):
+        '''
+           Method to generate random password for a user creating a new account in the the user_credentials.
+        '''
+        password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~!@#$%^&*<?>"
+        return ''.join(random.choice(password) for i in range(password_length))
