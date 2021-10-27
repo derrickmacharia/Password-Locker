@@ -135,7 +135,8 @@ def main():
                                 print ('\n')
                                 print(f'Hello {login_username}. Welcome to your password locker account!')
                                 print ('\n')
-                                    
+
+                                socialmedia()
     
                     elif short_code == 'lg':
              
@@ -152,6 +153,8 @@ def main():
                             print(f'Hello {lg_username}. This is your password locker account, Welcome!')
                             print ('\n')
 
+                            socialmedia()
+
                     elif short_code == 'dc':
 
                             if display_users():
@@ -166,6 +169,8 @@ def main():
                                     print('\n')
                                     print("You dont seem to have any user saved yet")
                                     print('\n')
+
+                                    socialmedia()
 
                     elif short_code == 'fc':
 
@@ -182,11 +187,60 @@ def main():
                             else:
                                     print("That contact does not exist")
 
+                                    socialmedia()
+
                     elif short_code == "ex":
                             print("Bye .......")
                             break
                     else:
                             print("I really didn't get that. Please use the short codes")
+
+def  socialmedia():
+    print("Hello You can store your social account here")
+
+    print("Use this code to navigate through")
+    print('\n')
+    while True:
+            print('ana - Add a new social account credentials')
+            print('exs - Add an existing social account credentials')
+            print('dis - Display your available social accounts credentials')
+            print('del - Delete a saved account credentials')
+            print('ex - Exit from the account')
+            
+            user_code = input().lower()
+
+            if user_code == 'ana':
+                print('Add a new social account credentials')
+                print("-"*20)
+
+                print('What is your new Social Account Name? ...')
+                account_site = input()
+
+                print('What is your username in the Social Account Name...')
+                account_username= input()
+                
+                print ('\n')
+                print('Use:')
+                print('gp - To get the password generated for you')
+                print('cp - To create your own password')
+
+                short_code2 = input().lower()
+                if short_code2 == 'gp':
+                    print(
+                        "Enter length of your desired password?")
+                    password_length = int(input())
+                    account_password = generate_password(
+                        password_length)
+                    print(
+                        f"Your generated password is {account_password}")
+                elif short_code2 == 'cp':
+                    print('Input your password....')
+                    password = input()
+                else:
+                    print('Invalid short code')     
+                save_social_credentials(create_new_credential(account_site, account_username, account_password))
+                   
+                print(f'{account_site} account credentials have been saved and stored')
 
 if __name__ == '__main__':
     main()
