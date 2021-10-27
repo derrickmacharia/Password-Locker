@@ -224,8 +224,8 @@ def  socialmedia():
                 print('gp - To get the password generated for you')
                 print('cp - To create your own password')
 
-                short_code2 = input().lower()
-                if short_code2 == 'gp':
+                user_code2 = input().lower()
+                if user_code2 == 'gp':
                     print(
                         "Enter length of your desired password?")
                     password_length = int(input())
@@ -233,14 +233,30 @@ def  socialmedia():
                         password_length)
                     print(
                         f"Your generated password is {account_password}")
-                elif short_code2 == 'cp':
+                elif user_code2 == 'cp':
                     print('Input your password....')
-                    password = input()
+                    account_password = input()
                 else:
                     print('Invalid short code')     
                 save_social_credentials(create_new_credential(account_site, account_username, account_password))
                    
                 print(f'{account_site} account credentials have been saved and stored')
+
+            elif user_code == 'exs':
+                print('Add your existing account credentials')
+                print("-"*40)
+
+                print('Social Account Name ...')
+                account_site = input()
+
+                print('Username...')
+                account_username = input()
+
+                print('Password...')
+                account_password = input()
+
+                save_social_credentials(create_new_credential(account_site, account_username, account_password))
+                print(f'{account_site} You account password is stored')
 
 if __name__ == '__main__':
     main()
