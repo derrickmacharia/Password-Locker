@@ -258,5 +258,20 @@ def  socialmedia():
                 save_social_credentials(create_new_credential(account_site, account_username, account_password))
                 print(f'{account_site} You account password is stored')
 
+            elif user_code == 'dis':
+                if display_social_credentials():
+                    print("Here is a list of all the accounts you have stored .") 
+                    print("-"*30)   
+
+                    for credentials in display_social_credentials():
+                        print(
+                            f"{credentials.account_site} {credentials.account_username} {credentials.account_password}"
+                        )
+                    print('\n')    
+                else:
+                    print('\n')
+                    print('You do not have any social account saved')       
+                    print('\n')
+
 if __name__ == '__main__':
     main()
