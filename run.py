@@ -273,5 +273,23 @@ def  socialmedia():
                     print('You do not have any social account saved')       
                     print('\n')
 
+            elif user_code == 'del': 
+                            print("Enter the media name you want to delete")
+                            account_name_delete = input()
+                            if display_social_credentials():
+                                print(
+                                    f"Detail with media name '{account_name_delete}' has been deleted")
+                                print('\n')
+                            else:
+                                print(
+                                    f"Detail with media name '{account_name_delete}' does not exist")
+
+            elif user_code == 'ex':
+                print('Bye!.')
+                    
+            else:
+                print('Wrong user code! Try again')
+
+
 if __name__ == '__main__':
     main()
