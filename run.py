@@ -1,4 +1,5 @@
 from user import User
+from credentials import Credentials
 
 def create_user(fname,lname,email):
     '''
@@ -13,7 +14,7 @@ def save_user(user):
     '''
     user.save_user()
 
-def del_contact(user):
+def del_user(user):
     '''
     Function to delete a contact
     '''
@@ -36,3 +37,4 @@ def display_users():
     Function that returns all the saved contacts
     '''
     return User.display_users()
+

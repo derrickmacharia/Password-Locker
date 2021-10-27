@@ -38,8 +38,6 @@ class User:
                 return user
 
 
-
-
     @classmethod
     def user_exists(cls, username):
         for user in cls.user_list:
